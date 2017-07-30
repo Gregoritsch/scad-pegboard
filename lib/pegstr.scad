@@ -64,6 +64,7 @@ holder_sides = max(50, min(20, holder_x_size*2));
 hole_spacing = 25.4;
 hole_size = 6.0035;
 //board_thickness = 5;
+//pin_length=5;
 
 
 holder_total_x = wall_thickness + holder_x_count*(wall_thickness+holder_x_size);
@@ -108,10 +109,10 @@ module round_rect_ex(x1, y1, x2, y2, z, r1, r2)
     }
 }
 
-module pin(clip)
+module pin(clip, thickness)
 {
 	rotate([0,0,15])
-	cylinder(r=hole_size/2, h=board_thickness*1.5+epsilon, center=true, $fn=12);
+	cylinder(r=hole_size/2, h=thickness*1.5+epsilon, center=true, $fn=12);
 
 	if (clip) {
 		//
@@ -120,14 +121,14 @@ module pin(clip)
 			translate([0, 0, hole_size-epsilon])
 				cube([hole_size+2*epsilon, clip_height, 2*hole_size], center=true);
 
-			// [-hole_size/2 - 1.95,0, board_thickness/2]
-			translate([0, hole_size/2 + 2, board_thickness/2]) 
+			// [-hole_size/2 - 1.95,0, thickness/2]
+			translate([0, hole_size/2 + 2, thickness/2])
 				rotate([0, 90, 0])
 				rotate_extrude(convexity = 5, $fn=20)
 				translate([5, 0, 0])
 				 circle(r = (hole_size*0.95)/2); 
 			
-			translate([0, hole_size/2 + 2 - 1.6, board_thickness/2]) 
+			translate([0, hole_size/2 + 2 - 1.6, thickness/2])
 				rotate([45,0,0])
 				translate([0, -0, hole_size*0.6])
 					cube([hole_size+2*epsilon, 3*hole_size, hole_size], center=true);
@@ -145,7 +146,11 @@ module pinboard_clips()
 				j*hole_spacing, 
 				-hole_spacing*(round(holder_total_x/hole_spacing)/2) + i*hole_spacing, 
 				0])
-					pin(j==0);
+					if (j==0) {
+						pin(true, board_thickness);
+					} else {
+						pin(false, pin_length);
+                    }
 		}
 	}
 }
