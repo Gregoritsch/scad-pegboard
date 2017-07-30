@@ -10,6 +10,7 @@
 
 // preview[view:north, tilt:bottom diagonal]
 
+/*
 // width of the orifice
 holder_x_size = 10;
 
@@ -33,10 +34,11 @@ corner_radius = 30;
 
 // Use values less than 1.0 to make the bottom of the holder narrow
 taper_ratio = 1.0;
-
+*/
 
 /* [Advanced] */
 
+/*
 // offset from the peg board, typically 0 unless you have an object that needs clearance
 holder_offset = 0.0;
 
@@ -51,7 +53,7 @@ holder_cutout_side = 0.0;
 
 // set an angle for the holder to prevent object from sliding or to view it better from the top
 holder_angle = 0.0;
-
+*/
 
 /* [Hidden] */
 
@@ -61,7 +63,7 @@ holder_sides = max(50, min(20, holder_x_size*2));
 // dimensions the same outside US?
 hole_spacing = 25.4;
 hole_size = 6.0035;
-board_thickness = 5;
+//board_thickness = 5;
 
 
 holder_total_x = wall_thickness + holder_x_count*(wall_thickness+holder_x_size);
