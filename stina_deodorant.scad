@@ -46,5 +46,6 @@ holder_angle = 0.0;
 hole_spacing = 25.4;
 hole_size = 6.0035;
 board_thickness = 2;
+pin_length = 4;
 
 include <lib/pegstr.scad>;
