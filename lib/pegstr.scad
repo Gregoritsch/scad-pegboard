@@ -63,6 +63,7 @@ holder_sides = max(50, min(20, holder_x_size*2));
 // dimensions the same outside US?
 hole_spacing = 25.4;
 hole_size = 6.0035;
+peg_fit_percentage = 3;
 //board_thickness = 5;
 //pin_length=5;
 
@@ -133,6 +134,9 @@ module pin(clip, thickness)
 				translate([0, -0, hole_size*0.6])
 					cube([hole_size+2*epsilon, 3*hole_size, hole_size], center=true);
 		}
+	} else {
+		translate([0, 0, thickness/2])
+			sphere(d=(hole_size*(1+(peg_fit_percentage/100))));
 	}
 }
 
