@@ -17,7 +17,7 @@ holder_x_count = 1;
 holder_y_count = 1;
 
 // orifice corner radius (roundness). Needs to be less than min(x,y)/2.
-corner_radius = 30.5;
+corner_radius = 32;
 
 // Use values less than 1.0 to make the bottom of the holder narrow
 taper_ratio = 1.0;
