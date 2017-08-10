@@ -63,7 +63,7 @@ holder_sides = max(50, min(20, holder_x_size*2));
 // dimensions the same outside US?
 hole_spacing = 25.4;
 hole_size = 6.0035;
-peg_fit_percentage = 3;
+peg_fit_percentage = 4;
 //board_thickness = 5;
 //pin_length=5;
 
